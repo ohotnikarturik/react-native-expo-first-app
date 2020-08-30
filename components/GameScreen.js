@@ -5,6 +5,7 @@ import Colors from "../constant/colors";
 import NumberContainer from "./NumberContainer";
 import Card from "./Card";
 import GameOverScreen from "./GameOverScreen";
+import TitleText from "./TitleText";
 
 const generateRandomBetween = (min, max, exlude) => {
   min = Math.ceil(min);
@@ -57,7 +58,7 @@ const GameScreen = (props) => {
 
   return (
     <View style={styles.screen}>
-      <Text>Opponent's Guess</Text>
+      <TitleText>Opponent's Guess</TitleText>
       <NumberContainer>{currentGuess}</NumberContainer>
       <Card style={styles.buttonContainer}>
         <Button

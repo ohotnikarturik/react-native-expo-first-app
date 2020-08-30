@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import {
   View,
-  Text,
   StyleSheet,
   Button,
   TouchableWithoutFeedback,
@@ -13,8 +12,10 @@ import Card from "../components/Card";
 import Colors from "../constant/colors";
 import Input from "../components/Input";
 import NumberContainer from "../components/NumberContainer";
+import TitleText from "../components/TitleText";
+import BodyText from "../components/BodyText";
 
-export const StartGameScreen = (props) => {
+const StartGameScreen = (props) => {
   const [enteredValue, setEnteredValue] = useState("");
   const [confirmed, setConfirmed] = useState(false);
   const [selectedNumber, setSelectedNumber] = useState();
@@ -49,7 +50,7 @@ export const StartGameScreen = (props) => {
   if (confirmed)
     confirmedInputOutput = (
       <Card style={styles.summaryContainer}>
-        <Text>You selected</Text>
+        <BodyText>You selected</BodyText>
         <NumberContainer>{selectedNumber}</NumberContainer>
         <Button title={'Start Game'} onPress={ () => props.onStartGame(selectedNumber) } />
       </Card>
@@ -62,9 +63,9 @@ export const StartGameScreen = (props) => {
       }}
     >
       <View style={styles.screen}>
-        <Text style={styles.title}>The Game Screen</Text>
+        <TitleText style={styles.title}>The Game Screen</TitleText>
         <Card style={styles.inputContainer}>
-          <Text style={styles.inputTitle}>Select a number</Text>
+          <BodyText style={styles.inputTitle}>Select a number</BodyText>
           <Input
             style={styles.input}
             blurOnSubmit
@@ -137,3 +138,6 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   }
 });
+
+
+export default StartGameScreen
